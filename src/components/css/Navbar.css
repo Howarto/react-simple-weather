@@ -1,0 +1,30 @@
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  height: 55px;
+  justify-content: left;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.Navbar__title {
+  margin-left: 1em;
+}
+
+.Navbar__menubutton {
+  user-select: none;
+  height: 25px;
+  width: 25px;
+  margin-left: 1em;
+  fill: #606060;
+  transition: transform 0.08s;
+}
+
+.Navbar__menubutton:hover {
+  fill: #818181;
+}
+
+.Navbar__menubutton:active {
+  fill: #3c3c3c;
+  transform: scale(0.9);
+}

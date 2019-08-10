@@ -1,0 +1,1 @@
+export const openWeatherMapAPI = '3ef30138fd7a93c7533da80fe212ccf7';

@@ -1,0 +1,60 @@
+.TextPopup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 130px;
+  width: 300px;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: 101;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+}
+
+.TextPopup__input {
+  width: 80%;
+  align-self: center;
+  margin: auto;
+}
+
+.TextPopup__controls {
+  width: 100%;
+  display: flex;
+}
+
+.TextPopup__controls__accept {
+  display: flex;
+  flex: 1 1 0;
+  user-select: none;
+  float: left;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  color: #27AAE1;
+  height: 35px;
+  border-left: 1px solid #DEDEDE;
+}
+
+.TextPopup__controls__accept:active {
+  background-color: #F0F0F0;
+}
+
+.TextPopup__controls__cancel {
+  display: flex;
+  flex: 1 1 0;
+  user-select: none;
+  float: left;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  height: 35px;
+}
+
+.TextPopup__controls__cancel:active {
+  background-color: #F0F0F0;
+}

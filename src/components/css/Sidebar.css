@@ -9,6 +9,7 @@
 }
 
 .Sidebar__weather {
+  user-select: none;
   height: 100px;
   width: 100%;
   display: flex;
@@ -73,6 +74,14 @@
     margin-left: 20px;
     font-size: 1.4em;
   }
+}
+
+.Sidebar__weather:hover {
+  background-color: #D2D2D2;
+}
+
+.Sidebar__weather--selected {
+  background-color: #D2D2D2;
 }
 
 .Sidebar--hide {

@@ -2,13 +2,16 @@ import React from 'react';
 import './css/Sidebar.css';
 import { ReactComponent as AddButtonSVG } from '../assets/ic_add_circle.svg';
 import store from '../store';
-import { setDisplayAddWeatherPopup, addWeather } from '../actions';
+import { setDisplayAddWeatherPopup, addWeather, setCurrentWeatherId } from '../actions';
 import AddCityPopup from '../containers/AddCityPopup';
 import { openWeatherMapAPI } from '../constants/api-keys';
 
-const Weather = ({ city, image }) => {
+const Weather = ({ city, image, onClick, selected }) => {
+
+  let selectedCSS = selected ? ' Sidebar__weather--selected' : '';
+
   return (
-    <div className="Sidebar__weather">
+    <div onClick={ onClick } className={ `Sidebar__weather${ selectedCSS }` }>
       <img alt={ `${ city } weather` } className="Sidebar__weather__pic" src={ image } />
       <span className="Sidebar__weather__text">{ city }</span>
     </div>
@@ -16,7 +19,7 @@ const Weather = ({ city, image }) => {
 }
 
 const Sidebar = () => {
-  const { displaySidebar, displayAddCityPopup, weathers } = store.getState();
+  const { displaySidebar, displayAddCityPopup, weathers, currentWeatherId } = store.getState();
   const sidebarClasses = displaySidebar ? "Sidebar Sidebar--hide" : "Sidebar";
 
   return (
@@ -26,13 +29,17 @@ const Sidebar = () => {
       }
       {
         Object.values(weathers).map((weather, index) => (
-          <Weather key={ index } city={ `${ weather.name }, ${ weather.sys.country }` } image={ `http://openweathermap.org/img/wn/${ weather.weather[0].icon }@2x.png` } />
+          <Weather onClick={ handleSelectWeather.bind(this, weather.id) } selected={ currentWeatherId === weather.id } key={ index } city={ `${ weather.name }, ${ weather.sys.country }` } image={ `http://openweathermap.org/img/wn/${ weather.weather[0].icon }@2x.png` } />
         ))
       }
       <AddButtonSVG onClick={ handleBtnClick } className="Sidebar__addButton"/>
     </div>
   );
 };
+
+function handleSelectWeather(weatherId) {
+  store.dispatch(setCurrentWeatherId(weatherId));
+}
 
 function handleBtnClick() {
   store.dispatch(setDisplayAddWeatherPopup(true));

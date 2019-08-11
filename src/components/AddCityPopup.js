@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/AddCityPopup.css';
-import TextPopup from '../components/TextPopup';
+import TextPopup from './TextPopup';
 
 const AddCityPopup = ({ onCancel, onAccept }) => {
 

@@ -1,0 +1,52 @@
+.WeatherData {
+  width: 150px;
+  margin-top: 50px;
+}
+
+.WeatherData__header {
+  font-size: 24px;
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.WeatherData__data {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  text-overflow: ellipsis;
+}
+
+.WeatherData__data__block {
+  display: flex;
+  align-items: center;
+}
+
+.WeatherData__data__block__time {
+  font-size: 16px;
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.WeatherData__data__block__pic {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 0;
+}
+
+.WeatherData__data__block__pic__element {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+@media (min-height: 870px) {
+  .WeatherData {
+    width: 300px;
+    height: 400px;
+    margin-top: 100px;
+  }
+
+  .WeatherData__data__block__pic__element {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
